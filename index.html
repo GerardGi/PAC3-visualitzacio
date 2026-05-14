@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La paradoxa portuguesa — Per què els locals cancel·len més que els turistes</title>
+<meta name="description" content="Anàlisi visual de 117.000 reserves d'hotels a Portugal. Els residents portuguesos cancel·len 2,5× més que els turistes internacionals. Per què?">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<article>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-content">
+    <h1>La paradoxa<br>portuguesa</h1>
+    <p class="dek">Per què els hostes locals cancel·len 2,5 vegades més que els turistes internacionals als hotels del seu propi país — i per què la política dels hotels no ho resol</p>
+    <p class="byline">Gerard Ginés · Visualització de dades · Universitat Oberta de Catalunya · Maig 2026</p>
+    <div class="scroll-hint">↓ desplaceu-vos per llegir</div>
+  </div>
+</header>
+
+<!-- INTRO -->
+<section class="intro">
+  <p class="lede">Entre el juliol de 2015 i l'agost de 2017, dos hotels portuguesos -un a Lisboa i un altre a l'Algarve- van registrar <strong>117.396 reserves</strong>. Trenta-set de cada cent no van arribar a complir-se mai: els clients les van cancel·lar abans del check-in.</p>
+  <p>Aquesta taxa és anormalment alta per a la indústria hotelera. La pregunta natural és: <em>qui cancel·la?</em> ¿Hi ha algun perfil de client que sigui sistemàticament més inestable que els altres?</p>
+  <p>La resposta és sí, i és inesperada.</p>
+</section>
+
+<!-- SCROLLYTELLING -->
+<section class="scrolly">
+  <div class="scrolly-inner">
+
+    <!-- STICKY CHART -->
+    <div class="sticky-chart">
+      <div class="chart-container">
+        <div id="chart-wrapper" class="chart-wrapper"></div>
+        <div id="big-numbers" class="big-numbers" style="display:none;">
+          <div class="bn-col bn-prt">
+            <span class="bn-value" id="bn-prt">0%</span>
+            <span class="bn-label">Residents portuguesos</span>
+            <span class="bn-sub">cancel·len la seva reserva</span>
+          </div>
+          <div class="bn-divider"><span class="bn-vs">vs</span></div>
+          <div class="bn-col bn-rest">
+            <span class="bn-value" id="bn-rest">0%</span>
+            <span class="bn-label">Hostes internacionals</span>
+            <span class="bn-sub">cancel·len la seva reserva</span>
+          </div>
+          <div class="bn-footer" id="bn-diff" style="opacity:0;">
+            <span>34 punts percentuals de diferència · 47.024 reserves PRT · 70.372 internacionals</span>
+          </div>
+        </div>
+        <div class="chart-caption" id="chart-caption"></div>
+      </div>
+    </div>
+
+    <!-- 7 STEPS -->
+    <div class="steps">
+
+      <!-- 1 — WHO -->
+      <div class="step" data-scene="ranking" data-caption="Taxa de cancel·lació per país d'origen, 2015–2017. Només països amb 1.000+ reserves. Passa el ratolí per sobre de les barres.">
+        <h2>La descoberta</h2>
+        <p>Si ordenem els quinze països que generen més reserves segons la proporció que acaben cancel·lant, sorgeix un patró immediat: <strong class="prt">Portugal és un outlier</strong>. Els residents portuguesos cancel·len el 58% de les seves reserves — vint punts per sobre del segon, Brasil, i més del doble que la majoria de mercats europeus.</p>
+      </div>
+
+      <!-- 2 — WHERE -->
+      <div class="step" data-scene="countryHotel" data-caption="Cada país mostra dues marques: cercle = City Hotel (Lisboa), quadrat = Resort Hotel (Algarve). La barra connecta els dos valors. Vermell = Portugal, blau = resta.">
+        <h2>I no és l'hotel</h2>
+        <p>La primera pregunta que cal descartar: <em>és un problema d'un hotel concret?</em> El dataset inclou un hotel urbà a Lisboa i un resort a l'Algarve — perfils molt diferents.</p>
+        <p>Però el patró es manté als dos. Portugal cancel·la <strong class="prt">67% al City</strong> i <strong class="prt">43% al Resort</strong>. Cap altre país s'acosta: el segon, Brasil, queda a 41% i 24%. La barra vermella és, de llarg, la més llarga del gràfic.</p>
+        <p>No és l'hotel. És el client.</p>
+      </div>
+
+      <!-- 3 — HOW MUCH -->
+      <div class="step" data-scene="bignumbers" data-caption="58,1% dels portuguesos cancel·len, davant del 23,7% dels hostes internacionals. Diferència de 34 punts percentuals sobre 117.396 reserves.">
+        <h2>El nucli del problema</h2>
+        <p><strong class="prt">58%</strong> dels residents portuguesos cancel·len, davant del <strong class="rest">24%</strong> dels hostes internacionals. Trenta-quatre punts percentuals de diferència sobre el mateix servei, als mateixos hotels, durant el mateix període.</p>
+        <p>Què fa diferent un hoste local d'un internacional? La diferència clau és el <em>cost de cancel·lar</em>. Un turista estranger ja ha comprat un vol, ha demanat vacances, ha planificat un itinerari. Cancel·lar l'hotel vol dir perdre tot això. Un portuguès no ha invertit res d'això: pot simplement no anar.</p>
+        <p>Però intuïció no és evidència. Busquem-ho a les dades.</p>
+      </div>
+
+      <!-- 4 — WHY: TIME -->
+      <div class="step" data-scene="leadtime" data-caption="Taxa de cancel·lació segons els dies d'antelació de la reserva. Cada punt representa milers de reserves reals. Passa el ratolí per veure els detalls.">
+        <h2>Reservar sense compromís</h2>
+        <p>Si la hipòtesi dels costos irrecuperables és certa, hauria de manifestar-se al <strong>temps d'antelació</strong>: com més aviat reservo, menys vinculat estic al viatge, i més fàcil és cancel·lar.</p>
+        <p>Per als turistes internacionals, la taxa de cancel·lació es manté estable al voltant del 25-30% independentment de quan reservin. Ja han comprat el vol: estan compromesos. Per als portuguesos, <strong class="prt">la corba és exponencial</strong>: del 14% a curt termini fins al <strong class="prt">97% amb més d'un any d'antelació</strong>.</p>
+        <p>Un 97% vol dir que gairebé cap d'aquestes reserves és real. Són <em>marcadors de posició</em>: bloquejar una habitació per si de cas, amb la certesa que cancel·lar no costa res.</p>
+      </div>
+
+      <!-- 5 — WHY: CHANNEL -->
+      <div class="step" data-scene="cancelBySegment" data-caption="Taxa de cancel·lació per canal de reserva i origen del client. Cada parell compara portuguesos (vermell) i internacionals (blau) dins el MATEIX canal.">
+        <h2>El mateix canal, un altre món</h2>
+        <p>La segona pista és el <strong>canal de reserva</strong>. Dins de cada canal, els portuguesos cancel·len sempre més — però la distància varia enormement.</p>
+        <p>Les reserves directes i corporatives mostren una diferència moderada. Però als <strong>grups</strong>, el comportament divergeix radicalment: <strong class="prt">85% de cancel·lació PRT</strong> contra 7% internacional. Agències físiques: <strong class="prt">69%</strong> contra 2%.</p>
+        <p>I recordem: el 29% de les reserves portugueses vénen de grups, i un 25% d'agències físiques. Més de la meitat del mercat domèstic passa pels canals amb més cancel·lació.</p>
+      </div>
+
+      <!-- 6 — THE FAILED RESPONSE -->
+      <div class="step" data-scene="depositEffect" data-caption="Taxa de cancel·lació dels portuguesos segons si l'hotel els va exigir un dipòsit no reemborsable. Dades reals: 32.801 reserves sense dipòsit, 14.175 amb dipòsit.">
+        <h2>La resposta que no funciona</h2>
+        <p>Els hotels no són ingenus. Davant de taxes de cancel·lació del 58%, recorren a la mesura més dura del sector: el <strong>dipòsit no reemborsable</strong>. L'apliquen al 30% de les reserves portugueses — cinquanta vegades més que als internacionals.</p>
+        <p>Funciona? Les dades diuen que <strong>no</strong>.</p>
+        <p>Sense dipòsit, els portuguesos cancel·len el 40%. Amb dipòsit no reemborsable, cancel·len el <strong class="prt">99,7%</strong>. Gairebé totes. Perden els diners i cancel·len igualment.</p>
+        <p>El dipòsit no dissuadeix — simplement <em>confirma</em> un perfil que ja tenia intenció de no venir.</p>
+      </div>
+
+      <!-- 7 — SYNTHESIS -->
+      <div class="step" data-scene="radar" data-caption="Perfil comparatiu en 5 dimensions de compromís. Cada eix mostra un indicador normalitzat (0–100). Més àrea = menys compromís amb la reserva.">
+        <h2>El retrat complet</h2>
+        <p>Si ajuntem totes les peces, emergeix el perfil del <strong class="prt">reservant fantasma</strong>: un client que reserva amb <strong>més antelació</strong> (118 vs 96 dies de mitjana), paga <strong>menys</strong> (95€ vs 109€), fa <strong>menys sol·licituds especials</strong> (0,36 vs 0,71), utilitza <strong>canals de grup i agències</strong>, i gairebé <strong>mai modifica</strong> la reserva.</p>
+        <p>Cada indicador, per separat, sembla menor. Junts, dibuixen un patró clar: <strong class="prt">una reserva sense pell al joc</strong>. El turista internacional compra un vol, planifica un itinerari, demana habitació amb vistes. El local bloqueja una habitació per si de cas.</p>
+        <p>Aquesta és la paradoxa portuguesa: no és mala fe, és manca d'incentiu per complir.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONCLUSION -->
+<section class="conclusion">
+  <h2>Què en treiem</h2>
+  <p>La paradoxa portuguesa no és un misteri sense explicació. És el resultat previsible de tres forces convergents: <strong>reserves especulatives a llarg termini</strong> (el 97% de les reserves amb +1 any d'antelació es cancel·len), <strong>canals de reserva de baixa fricció</strong> (grups i agències físiques amb taxes del 69-85%), i l'<strong>absència de cost real</strong> per al viatger local — ni vol comprat, ni itinerari planificat, ni sol·licituds especials que generin vincle emocional amb l'estada.</p>
+  <p>La resposta dels hotels — dipòsits no reemborsables — no funciona perquè ataca el símptoma, no la causa. El 99,7% dels portuguesos amb dipòsit cancel·len igualment. Caldria actuar sobre els mecanismes: limitar el sobre-booking per grups, penalitzar cancel·lacions tardanes per canal, o simplement no comptar amb el mercat domèstic de la mateixa manera que amb l'internacional.</p>
+  <p>Aquesta visualització no resol el problema. Però mostra que les dades permeten descompondre'l peça a peça fins a trobar-ne l'origen.</p>
+</section>
+
+<!-- FITXA TÈCNICA -->
+<section class="methodology">
+  <h2>Fitxa tècnica</h2>
+  <div class="method-list">
+
+    <div class="method-row">
+      <div class="method-label">Objectiu i públic</div>
+      <div class="method-content">
+        <p>Investigar visualment per què els residents portuguesos cancel·len reserves hoteleres a un ritme 2,5× superior als turistes internacionals, i determinar si les mesures correctores dels hotels són efectives. Dirigit a gestors hotelers, analistes de <em>revenue management</em> i investigadors de comportament del consumidor en turisme.</p>
+      </div>
+    </div>
+
+    <div class="method-row">
+      <div class="method-label">Dataset</div>
+      <div class="method-content">
+        <p><strong>Font:</strong> Antonio, N., de Almeida, A. &amp; Nunes, L. (2019). <em>Hotel booking demand datasets</em>. Data in Brief, 22, 41–49. <a href="https://doi.org/10.1016/j.dib.2018.11.126">doi:10.1016/j.dib.2018.11.126</a></p>
+        <p><strong>Abast:</strong> 119.390 reserves originals → 117.396 després de neteja d'outliers en <code>adults</code>, <code>children</code>, <code>babies</code> i <code>adr</code>, i exclusió d'estades amb 0 nits, 0 hostes o cost 0.</p>
+        <p><strong>Període:</strong> Juliol 2015 – Agost 2017. <strong>Propietats:</strong> City Hotel (Lisboa) i Resort Hotel (Algarve). <strong>Variables clau:</strong> <code>is_canceled</code>, <code>country</code>, <code>deposit_type</code>, <code>market_segment</code>, <code>lead_time</code>, <code>adr</code>, <code>total_of_special_requests</code>.</p>
+      </div>
+    </div>
+
+    <div class="method-row">
+      <div class="method-label">Eines i tecnologies</div>
+      <div class="method-content">
+        <p><strong>Anàlisi exploratòria:</strong> R 4.x + RStudio amb <code>tidyverse</code>, <code>ggplot2</code>, <code>ggstatsplot</code> i <code>ggmosaic</code>. <strong>Gràfics interactius:</strong> Chart.js 4.4 amb plugin <code>chartjs-plugin-annotation</code>. <strong>Scrollytelling:</strong> scrollama.js 3.2 (Intersection Observer). <strong>Implementació:</strong> HTML5, CSS3, JavaScript vanilla — codi propi al 100%, sense frameworks ni plantilles. <strong>Desplegament:</strong> GitHub Pages.</p>
+      </div>
+    </div>
+
+    <div class="method-row">
+      <div class="method-label">Decisions de disseny</div>
+      <div class="method-content">
+        <p><strong>Paleta semàntica:</strong> vermell (#C73E3A) sempre per Portugal, blau (#5B7C99) sempre per la resta — coherent entre gràfics i text. <strong>Tipografia editorial:</strong> Playfair Display (serif, titulars) + Inter (sans, cos) — evoca publicacions com The Pudding o NYT Upshot. <strong>Etiquetat directe</strong> sobre els gràfics per reduir càrrega cognitiva. <strong>Interactivitat:</strong> tooltips contextuals en català, llegendes clicables, animacions d'entrada.</p>
+      </div>
+    </div>
+
+    <div class="method-row">
+      <div class="method-label">Tècniques de visualització</div>
+      <div class="method-content">
+        <p>6 tècniques justificades per la naturalesa de cada dada: <strong>horizontal bar chart</strong> (ranking categòric), <strong>dumbbell chart</strong> (distància entre dos valors del mateix subjecte), <strong>line chart</strong> (relació contínua entre antelació i cancel·lació), <strong>butterfly chart</strong> (comparació simètrica divergent), <strong>vertical bar chart</strong> (condicions experimentals confrontades) i <strong>radar chart</strong> (perfil multidimensional de síntesi).</p>
+      </div>
+    </div>
+
+    <div class="method-row">
+      <div class="method-label">Estructura narrativa</div>
+      <div class="method-content">
+        <p>Arc d'investigació en 7 actes: descoberta → confirmació → hipòtesi (costos irrecuperables) → evidència (lead time) → mecanisme (canals) → contraprova (dipòsits) → síntesi (radar). Cada escena respon una pregunta i en genera una de nova.</p>
+      </div>
+    </div>
+
+    <div class="method-row">
+      <div class="method-label">Estratègies de captació</div>
+      <div class="method-content">
+        <p><strong>Pregunta detonant</strong> ("qui cancel·la?") que obre un buit de curiositat. <strong>Revelació progressiva</strong> que impedeix abandonar la lectura. <strong>Dades impactants</strong> que desafien la intuïció (97% a +1 any, 99,7% amb dipòsit). <strong>Retrat final</strong> del "reservant fantasma" que transforma estadística abstracta en un perfil tangible.</p>
+      </div>
+    </div>
+
+    <div class="method-row method-row--footer">
+      <div class="method-label">Autoria</div>
+      <div class="method-content">
+        <p>Gerard Ginés · PAC 3 · Visualització de Dades · Universitat Oberta de Catalunya · Maig 2026</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</article>
+
+<script src="intersection-observer.js"></script>
+<script src="scrollama.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.1.0/dist/chartjs-plugin-annotation.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
