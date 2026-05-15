@@ -126,7 +126,8 @@
           }},
           annotation: { annotations: { avg: {
             type:'line', xMin:37.5, xMax:37.5, borderColor:'#555555', borderWidth:1.5, borderDash:[6,4],
-            label:{ display:true, content:'Mitjana global 37,5%', position:'end',
+            label:{ display:true, content:'Mitjana global 37,5%',
+              position:{x:'center', y:'start'}, yAdjust:-10,
               backgroundColor:C.bg, color:'#555555', font:{size:11,weight:'bold'}, padding:4}
           }}},
         },
